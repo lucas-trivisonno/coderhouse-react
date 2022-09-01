@@ -1,7 +1,43 @@
+*{
+  margin: 0;
+  padding: 0;
+}
 .fondo-amarillo{
   background-color: #f5ebd2;
+  
+  
 }
 .nav-link{ 
   color: #4f2414;
   font-weight: bold;
+
+}
+.nav-link:hover{
+  background-color: #4f2414;
+  border-radius: 60%;
+  color: aliceblue;
+}
+.cart{
+ position: relative;
+ left: 300px;
+ border-radius: 50%;
+ background-color: #ff0000a2;
+
+}
+.cuerpo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #4f2414;
+  padding-bottom:25px ;
+  padding-top: 25px;
+}
+.titulo{
+ font-weight: bold;
+ font-family: fantasy;
+ font-size: 60px;
+ color: azure;
+ 
 }
