@@ -1,10 +1,10 @@
 import React from "react";
 
 
-function Titulo(){
+function Titulo(prop){
     return(
         <div className="cuerpo">
-        <h1 className="titulo">Lo mejor de burguer king </h1>
+        <h1 className="titulo"> {prop.titulo} </h1>
         
        
         </div>
