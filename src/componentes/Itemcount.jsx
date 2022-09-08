@@ -34,7 +34,7 @@ const Itemcount = ({stock, initial, onadd}) =>{
             <h5>Doble cuarto XL</h5>
         <div className="input-group">
         <input type="button" className="btn btn-secondary" value="-" onClick={()=> {RestarCantidad(cantidad -1)}}/>
-         <input type="text" className="form-control" value={cantidad} />
+         <input type="text" className="form-control" value={cantidad} onChange={()=> {}} />
          <input type="button" className="btn btn-secondary" value="+" onClick={()=> {SumarCantidad(cantidad +1)}}/>
   </div>
   <div className="d-grid gap-2 pt-2">

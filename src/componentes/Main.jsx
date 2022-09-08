@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const ItemListContainer = () => {
+const Main = () => {
     return(
         <div className="d-flex justify-content-center">
             
@@ -10,4 +10,4 @@ const ItemListContainer = () => {
     )
 }
 
-export default ItemListContainer;
+export default Main;
