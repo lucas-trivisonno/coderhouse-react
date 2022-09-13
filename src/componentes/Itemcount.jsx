@@ -30,7 +30,7 @@ const Itemcount = ({stock, initial, onadd}) =>{
     return(
         <div className="container py-3">
          <div className="row">
-        <div className="col-md-2">
+        <div className="col-md-4">
             <h5>Doble cuarto XL</h5>
         <div className="input-group">
         <input type="button" className="btn btn-secondary" value="-" onClick={()=> {RestarCantidad(cantidad -1)}}/>

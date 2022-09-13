@@ -41,3 +41,12 @@
  color: azure;
  
 }
+.detail{
+  display: flex;
+  flex-direction: row;
+  
+
+}
+.img-detail{
+  width: 50%;
+}

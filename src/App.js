@@ -3,6 +3,7 @@ import Header from './componentes/Header';
 import Itemcount from './componentes/Itemcount';
 import Titulo from './componentes/titulo';
 import Itemlistcontainer from './componentes/Itemlistcontainer';
+import Itemdetailcontainer from './componentes/Itemdetailcontainer';
 
 
 
@@ -16,8 +17,8 @@ function App() {
       
       
       <Itemlistcontainer />
-     
-      <Itemcount stock={5} initial={1} onadd={0}/>
+      <Itemdetailcontainer />
+      
     </div>
   );
 }
