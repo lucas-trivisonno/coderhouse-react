@@ -7,7 +7,7 @@ const Itemdetail = ({item}) =>{
             <img className="img-detail" src={item.imagen} alt={item.nombre} />
             <div className="info">
             <h2>{item.nombre} </h2>
-            <p>Dos carnes a la parrilla, pan, queso cheddar, cebolla, mostaza y ketchup.</p>
+            <p>{item.descripcion}</p>
             <h3>${item.precio}</h3>
             <Itemcount stock={5} initial={1} onadd={0}/>
             </div>

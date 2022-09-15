@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import Item from "./Item";
 
 const Itemcount = ({stock, initial, onadd}) =>{
     const [cantidad, setCantidad]= useState(initial);
@@ -31,7 +32,7 @@ const Itemcount = ({stock, initial, onadd}) =>{
         <div className="container py-3">
          <div className="row">
         <div className="col-md-4">
-            <h5>Doble cuarto XL</h5>
+            <h5>{}</h5>
         <div className="input-group">
         <input type="button" className="btn btn-secondary" value="-" onClick={()=> {RestarCantidad(cantidad -1)}}/>
          <input type="text" className="form-control" value={cantidad} onChange={()=> {}} />
