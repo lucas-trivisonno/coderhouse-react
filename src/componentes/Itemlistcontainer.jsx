@@ -6,7 +6,7 @@ import Itemlist from "./Itemlist";
 
 const Itemlistcontainer = () => {
     const [items, setItems] = useState([]);
-    
+    const {id} = useParams();
 
     
 
@@ -24,18 +24,18 @@ const Itemlistcontainer = () => {
 
         const getProductos = new Promise((resolve) => {
             setTimeout(() => {
-                resolve(productos);
-            }, 2000);
+                resolve(productos.filter(producto => producto.categoria === id));
+            }, 1000);
         });
 
         getProductos.then((respuesta) => {
             setItems(respuesta);
         });
-    }, []);
+    }, [id]);
 
     return (
-        <div className="container">
-            <Itemlist items={items} />
+        <div className="container fondo-amarillo">
+           <Itemlist items={items} />
         </div>
     )
 }

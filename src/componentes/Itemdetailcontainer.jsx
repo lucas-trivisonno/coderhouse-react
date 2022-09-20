@@ -22,17 +22,15 @@ const Itemdetailcontainer = () => {
         ];
 
         const getProductos = new Promise((resolve) => {
-            const producto = productos.find((product) =>product.id === product.id);
             setTimeout(() => {
-                resolve(producto);
-            }, 2000);
+                resolve(productos.find(producto => producto.id === parseInt(id)) || []);
+            }, 1000);
         });
 
         getProductos.then((respuesta) => {
             setItem(respuesta);
         });
     }, [id]);
-
     return (
         <div className="pt-5">
             <Itemdetail item={item} />

@@ -1,28 +1,27 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Cartwidget from "./Cartwidget";
 import logo from "./images/Burger-King-Logo-CMS.png";
+
 
 function Header(){
     return(
         <div className="container fondo-amarillo">
             <ul className="nav d-flex align-items-center p-3">
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="#"><img src={logo} width="48px" alt= "burguer"/></a>
+          <Link className="nav-link active" aria-current="page" href="#"><img src={logo} width="48px" alt= "burguer"/></Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">Pedi tu combo</a>
+        <Link to={"/productos"} className="nav-link" href="#">Menu</Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">Menu</a>
+          <Link className="nav-link" href="#">Promo</Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">Promo</a>
+          <Link className="nav-link" href="#">Novedades</Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">Novedades</a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="#">Delivery</a>
+          <Link className="nav-link" href="#">Delivery</Link>
         </li>
         <Cartwidget />
       </ul>

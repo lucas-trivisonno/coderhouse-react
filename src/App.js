@@ -17,13 +17,14 @@ function App() {
       <Header />
       
       <Titulo titulo="Lo mejor de burguer king"/>
-      <Itemlistcontainer />
+      
       
     </div>
     <Routes>
-    <Route exact path='/' element={<Itemlistcontainer/>}/>
+    <Route exact path='/productos' element={<Itemlistcontainer/>}/>
+    <Route exact path='/producto/:id' element={<Itemdetailcontainer/>}/>
     
-    <Route exact path='/item/:id' element={<Itemdetailcontainer/>}/>
+    
 
     </Routes>
 
