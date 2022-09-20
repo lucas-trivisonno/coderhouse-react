@@ -7,11 +7,13 @@ import Itemdetailcontainer from './componentes/Itemdetailcontainer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Itemlist from './componentes/Itemlist';
 import Itemdetail from './componentes/Itemdetail';
-
+import Provider from './componentes/Context';
+import Cart from './componentes/Cart';
 
 
 function App() {
   return (
+<Provider>
     <BrowserRouter>
     <div className='container-fluid fondo-amarillo' >
       <Header />
@@ -23,13 +25,14 @@ function App() {
     <Routes>
     <Route exact path='/productos' element={<Itemlistcontainer/>}/>
     <Route exact path='/producto/:id' element={<Itemdetailcontainer/>}/>
-    
+    <Route path={"/cart"} element={<Cart />} />
     
 
     </Routes>
 
     
     </BrowserRouter>
+    </Provider>
   );
 }
 

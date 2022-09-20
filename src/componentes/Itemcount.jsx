@@ -1,54 +1,44 @@
-import React from "react";
-import { useState } from "react";
-import Item from "./Item";
+import React, { useState, useContext } from "react";
+import { Link } from "react-router-dom";
+import {CartContext} from "./Context";
 
-const Itemcount = ({stock, initial, onadd}) =>{
-    const [cantidad, setCantidad]= useState(initial);
-    const [Itemstock, setItemstock]= useState(stock);
-    const [Itemadd, setOnadd]= useState(onadd);
+const Itemcount = (props) => {
+    const {item} = props;
+    const {cart, setCart, addItem} = useContext(CartContext);
+    const [counter, setCounter] = useState(props.initial);
+    const [itemStock, setItemStock] = useState(5);
 
-    const RestarCantidad = (valor) =>{
-        if(valor > 0){
-            setCantidad(valor);
+    const decrementarCantidad = (valor) => {
+        if (valor > 0) {
+            setCounter(valor);
         }
+    }
+
+    const incrementarCantidad = (valor) => {
+        if (valor <= itemStock) {
+            setCounter(valor);
+        }
+    }
+
+    const agregarProductos = () => {
+        if (counter <= itemStock) {
+            addItem(item, counter);
+            setItemStock(itemStock - counter);
+        }   
+    }
+    const finalizarCompra = () => {
         
-
-    }
-    const SumarCantidad = (valor) => {
-        if(valor <= Itemstock){
-            setCantidad(valor);
-        }
-
-    }
-    const Agregaralcarrito = () =>{
-        if(cantidad <= Itemstock){
-            setItemstock(Itemstock-cantidad)
-            setOnadd(Itemadd+cantidad)
-        }
-
     }
 
-    return(
-        <div className="container py-3">
-         <div className="row">
-        <div className="col-md-4">
-            <h5>{}</h5>
-        <div className="input-group">
-        <input type="button" className="btn btn-secondary" value="-" onClick={()=> {RestarCantidad(cantidad -1)}}/>
-         <input type="text" className="form-control" value={cantidad} onChange={()=> {}} />
-         <input type="button" className="btn btn-secondary" value="+" onClick={()=> {SumarCantidad(cantidad +1)}}/>
-  </div>
-  <div className="d-grid gap-2 pt-2">
-  <input type="button" className="btn btn-danger" value="Agregar al carrito" onClick={()=> {Agregaralcarrito()}}/>
-  </div>
-  <h6>Productos seleccionados: {Itemadd}</h6>
-  </div>
-  </div>
-  
-  </div>
-
+    return (
+        <div className="row">
+            <div className="col-md-6 offset-md-3">
+                <p><input type="button" className="btn btn-danger ml-5" value="-" onClick={() => {decrementarCantidad(counter - 1)}} /> {counter} <input type="button" className="btn btn-danger mr-3" value="+" onClick={() => {incrementarCantidad(counter + 1)}} /></p>
+                <p><input type="button" className="btn btn-danger" value="Agregar" onClick={() => {agregarProductos()}} /></p>
+                <p><input type="button" className="btn btn-danger" value="Finalizar Compra" onClick={() => {finalizarCompra()}} /></p>
+            </div>        
+        </div>
     )
-    
 };
 
 export default Itemcount;
