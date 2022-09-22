@@ -20,9 +20,7 @@ function Header(){
         <li className="nav-item">
           <Link className="nav-link" href="#">Novedades</Link>
         </li>
-        <li className="nav-item">
-          <Link className="nav-link" href="#">Delivery</Link>
-        </li>
+        
         <Cartwidget />
       </ul>
       </div>

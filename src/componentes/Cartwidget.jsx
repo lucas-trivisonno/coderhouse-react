@@ -17,7 +17,8 @@ const CartWidget = () => {
     return (
         
             <li className="cart">
-          <Link to={"/cart"} className="nav-link active" aria-current="page" href="#"><img src={Carrito} width="30px" alt= "cart"/></Link>
+          <Link to={"/cart"} className="nav-link active" aria-current="page" href="#"><img src={Carrito} width="30px" alt= "cart"/>
+          <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{total}</span></Link>
         </li>
         
     )

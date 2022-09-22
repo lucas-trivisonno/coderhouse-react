@@ -7,7 +7,7 @@ const Provider = ({children}) => {
 
     const addItem = (item, cantidad) => {
         if (isInCart(item.id)) {
-            let producto = cart.find(x => x.id === item.id);
+            let producto = cart.find(prod => prod.id === item.id);
             cart[cart.indexOf(producto)].cantidad += cantidad;
             setCart([...cart]);
         } else {
@@ -28,7 +28,7 @@ const Provider = ({children}) => {
     }
 
     return (
-        <CartContext.Provider value={{cart, addItem, clear, isInCart}}>
+        <CartContext.Provider value={{cart, addItem, clear, isInCart, cartTotal}}>
             {children}
         </CartContext.Provider>
     )
