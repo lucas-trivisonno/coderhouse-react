@@ -1,12 +1,9 @@
 import './App.css';
 import Header from './componentes/Header';
-import Itemcount from './componentes/Itemcount';
 import Titulo from './componentes/titulo';
 import Itemlistcontainer from './componentes/Itemlistcontainer';
 import Itemdetailcontainer from './componentes/Itemdetailcontainer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Itemlist from './componentes/Itemlist';
-import Itemdetail from './componentes/Itemdetail';
 import Provider from './componentes/Context';
 import Cart from './componentes/Cart';
 
