@@ -56,3 +56,14 @@ body{
 .img-carrito{
   width: 180px;
 }
+.main-img{
+  width: 360px;
+  height: 360px;
+  
+}
+.promo-img{
+  width: 90%;
+}
+.detalle{
+  font-family: fantasy;
+}

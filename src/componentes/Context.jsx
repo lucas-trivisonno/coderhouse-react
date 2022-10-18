@@ -22,16 +22,21 @@ const Provider = ({children}) => {
     const isInCart = (id) => {
         return cart.some(item => item.id === id);
     }
-
+    const clear = () => {
+        setCart([]);
+    }
     const cartTotal = () => {
         return cart.reduce((total, item) => total+=item.cantidad, 0);
+    }
+    const cartSuma = () => {
+        return cart.reduce((total, item) => total+=item.cantidad*item.precio, 0);
     }
     const deleteOne = (id) => {
         const productosFiltrados = cart.filter((prod) => prod.id !== id);
         setCart(productosFiltrados);
     };
     return (
-        <CartContext.Provider value={{cart, addItem, deleteAll, isInCart, cartTotal,deleteOne}}>
+        <CartContext.Provider value={{cart, addItem, deleteAll, isInCart, cartTotal,deleteOne,cartSuma, clear}}>
             {children}
         </CartContext.Provider>
     )

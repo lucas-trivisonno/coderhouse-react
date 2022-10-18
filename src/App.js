@@ -7,6 +7,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Provider from './componentes/Context';
 import Cart from './componentes/Cart';
 import Checkout from './componentes/Checkout';
+import Main from './componentes/Main';
+import Promos from './componentes/Promos';
+import Novedades from './componentes/Novedades';
 
 
 function App() {
@@ -21,10 +24,13 @@ function App() {
       
     </div>
     <Routes>
+    <Route exact path='/' element={<Main/>}/>
     <Route exact path='/productos' element={<Itemlistcontainer/>}/>
     <Route exact path='/producto/:id' element={<Itemdetailcontainer/>}/>
     <Route path={"/cart"} element={<Cart />} />
     <Route path={"/checkout"} element={<Checkout />} />
+    <Route exact path='/promos' element={<Promos/>}/>
+    <Route exact path='/novedades' element={<Novedades/>}/>
 
     </Routes>
 

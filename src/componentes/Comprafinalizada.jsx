@@ -8,6 +8,7 @@ const Comprafinalizada = ({id}) => {
                 <h1>Felicitaciones!</h1>
                 <p  width="180">Tu compra se ha realizado con exito</p>
                 <p>El pedidio se generó con el ID: <b>{id}</b></p>
+                <p><b>Disfrute su comida!!!</b> </p>
             </div>
         </div>
     )

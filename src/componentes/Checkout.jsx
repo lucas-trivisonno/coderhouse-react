@@ -7,7 +7,7 @@ import Comprafinalizada from "./Comprafinalizada";
 
 
     const Checkout = ()=>{
-    const {cart, clear,cartTotal } = useContext(CartContext);
+    const {cart, clear ,cartTotal, cartSuma } = useContext(CartContext);
     const [nombre, setNombre] = useState("");
     const [email, setEmail] = useState("");
     const [telefono, setTelefono] = useState("");
@@ -25,7 +25,7 @@ import Comprafinalizada from "./Comprafinalizada";
             });
             
            
-            const order = {buyer:buyer, items:items,  };
+            const order = {buyer:buyer, items:items,  total:cartSuma() };
             
            
             const db = getFirestore();
@@ -55,7 +55,7 @@ import Comprafinalizada from "./Comprafinalizada";
                             <input type="text" className="form-control" id="telefono" onInput={(e) => setTelefono(e.target.value)} />
                         </div>
                         <div className="mb-3">
-                            <label for="email" className="form-label">Dirección</label>
+                            <label for="direccion" className="form-label">Teléfono</label>
                             <input type="text" className="form-control" id="direccion" onInput={(e) => setDireccion(e.target.value)} />
                         </div>
                         <button type="button" className="btn btn-danger" onClick={() => {sendOrder()}}>Generar Orden</button>
@@ -65,17 +65,21 @@ import Comprafinalizada from "./Comprafinalizada";
                         <tbody>
                             {cart.map(item => (
                                 <tr key={item.id}>
-                                    <td className="text-start"><img src={item.imagen} alt={item.nombre} title={item.nombre} width="120" /></td>
+                                    <td className="text-start"><img src={ item.imagen} alt={item.nombre} title={item.nombre} width="120" /></td>
                                     <td className="text-start align-middle"><b>{item.nombre} x {item.cantidad}</b></td>
                                     <td className="text-end align-middle"><b>${item.cantidad * item.precio}</b></td>
                                 </tr>
                             ))}
-                            </tbody>
-                           </table>
+                            <tr>
+                                <td colSpan={2} className="text-end fw-bold">Total a Pagar</td>
+                                <td className="text-end fw-bold"><b>${cartSuma()}</b></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                </div>
-                : orderId !== "" ? <Comprafinalizada id={orderId} /> : <div className="alert alert-danger text-center" role="alert">No se encontraron Productos!</div>}
-                </div>
+            </div>
+            : orderId !== "" ? <Comprafinalizada id={orderId} /> : <div className="alert alert-danger text-center" role="alert">No se encontraron Productos!</div>}
+        </div>
               
     
     )
