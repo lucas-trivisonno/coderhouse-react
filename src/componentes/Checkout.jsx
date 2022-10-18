@@ -1,12 +1,13 @@
 import React, { useState, useContext } from "react";
 import { CartContext } from "./Context";
 import { getFirestore, collection, addDoc, } from "firebase/firestore";
+import Comprafinalizada from "./Comprafinalizada";
 
 
 
 
     const Checkout = ()=>{
-    const {cart, clear, cartTotal, cartSuma} = useContext(CartContext);
+    const {cart, clear,cartTotal } = useContext(CartContext);
     const [nombre, setNombre] = useState("");
     const [email, setEmail] = useState("");
     const [telefono, setTelefono] = useState("");
@@ -38,6 +39,7 @@ import { getFirestore, collection, addDoc, } from "firebase/firestore";
 
     return (
         <div className="container py-5">
+            {cartTotal() > 0 ?
             <div className="row">
                 <div className="col-md-4 offset-md-2">
                         <div className="mb-3">
@@ -58,8 +60,24 @@ import { getFirestore, collection, addDoc, } from "firebase/firestore";
                         </div>
                         <button type="button" className="btn btn-danger" onClick={() => {sendOrder()}}>Generar Orden</button>
                 </div>
+                <div className="col-md-4">
+                    <table className="table">
+                        <tbody>
+                            {cart.map(item => (
+                                <tr key={item.id}>
+                                    <td className="text-start"><img src={item.imagen} alt={item.nombre} title={item.nombre} width="120" /></td>
+                                    <td className="text-start align-middle"><b>{item.nombre} x {item.cantidad}</b></td>
+                                    <td className="text-end align-middle"><b>${item.cantidad * item.precio}</b></td>
+                                </tr>
+                            ))}
+                            </tbody>
+                           </table>
                 </div>
                 </div>
+                : orderId !== "" ? <Comprafinalizada id={orderId} /> : <div className="alert alert-danger text-center" role="alert">No se encontraron Productos!</div>}
+                </div>
+              
+    
     )
 
     }
