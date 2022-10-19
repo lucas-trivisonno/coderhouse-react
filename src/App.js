@@ -19,7 +19,7 @@ function App() {
     <div className='container-fluid fondo-amarillo' >
       <Header />
       
-      <Titulo titulo="Lo mejor de burguer king"/>
+      <Titulo titulo="Lo mejor de burger king"/>
       
       
     </div>
